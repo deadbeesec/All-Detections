@@ -1,0 +1,6 @@
+//For command execution of GitHub Actions Runner Creation
+DeviceProcessEvents
+| where Timestamp > ago(30d)
+| where ProcessCommandLine has all ("config.sh","SHA1HULUD") 
+  or ProcessCommandLine has all ("config.cmd","SHA1HULUD")
+| where ProcessCommandLine has "--name"
